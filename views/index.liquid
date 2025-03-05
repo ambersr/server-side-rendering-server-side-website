@@ -27,23 +27,32 @@
     <h2>All</h2>
 
     <ul class="webinars">
-        
+        {% for webinar in webinars %}
+
         <li class="webinar">
-            <video src="#"></video>
-            <span class="duration">1:00:00</span>
-            <h3>IROS CME Webinar: Fractionation in Head & Neck and CNS malignancies; Radiobiology Perspective</h3>
-            <p class="speaker">Prof. R.P. (Rob) Coppes, PhD</p>
+            <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" width="150" height="100"
+                style="object-fit: cover" />
+            <span class="duration">{{ webinar.duration }}</span>
+            <h3>{{ webinar.title }}</h3>
+            <p class="speaker">
+                {% for speaker in webinar.speakers %}
+                {{ speaker.avl_speakers_id.fullname }}
+                {% endfor %}
+            </p>
 
             <div>
                 <ul>
-                    <li><span>Head & neck</span></li>
-                    <li><span>Head & neck</span></li>
-                    <li><span>Head & neck</span></li>
+                    {% for categorie in webinar.categories %}
+                    <li><span>{{ categorie.name }}</span></li>
+                    {% endfor %}
                 </ul>
 
-                <a href="#">Watch <img src="#" alt=""></a>
+
+                <a href="/webinar/{{ webinar.slug }}">Watch <img src="#" alt=""></a>
             </div>
         </li>
+
+        {% endfor %}
     </ul>
 
 </section>

@@ -1,15 +1,16 @@
 {% render 'partials/head.liquid' %}
 
 <div class="wrapper-detail">
+{% for webinar in webinars %}
 
     <section class="left">
 
-        <video src="#"></video>
-        <h1>Titel</h1>
+        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}" width="150" height="100"  style="object-fit: cover"></video>
+        <h1>{{ webinar.title }}</h1>
 
         <ul class="info-detail">
-            <li>2,000 views</li>
-            <li>2,000 views</li>
+            <li>{{ webinar.views }}</li>
+            <li>{{ webinar.date }}</li>
         </ul>
 
         <u class="category-detail">
@@ -21,7 +22,7 @@
         <button>Read transcript</button>
 
         <h2>Description</h2>
-        <p>Lorem ipsum</p>
+        <p>{{ webinar.description }}</p>
         <button>Read more</button>
 
         <h2>Chapters</h2>
@@ -43,12 +44,22 @@
             <ul class="watch-next-cards">
                 <li class="watch-next-card">
                     <video src="#"></video>
-                    <h3>Titel</h3>
-                    <p>Speaker</p>
+                    <h3>
+                        {% for speaker in webinar.speakers %}
+                        {{ speaker.avl_speakers_id.fullname }}
+                        {% endfor %}
+                    </h3>
+                    <p>
+                        {% for speaker in webinar.speakers %}
+                        {{ speaker.avl_speakers_id.entitle }}
+                        {% endfor %}
+                    </p>
                 </li>
             </ul>
         </section>
     </section>
+
+    {% endfor %}
 </div>
 
 {% render 'partials/foot.liquid' %}
