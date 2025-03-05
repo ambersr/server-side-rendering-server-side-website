@@ -1,1 +1,51 @@
-Succes!
+{% render 'partials/head.liquid' %}
+
+<section class="webinar-filters">
+
+    <h1>Webinars</h1>
+
+    <form action="#" method="get">
+        <input type="text" name="search-webinar" placeholder="Search for a Webinar">
+    </form>
+
+    <ul class="category-webinars">
+        <li><a href="#">All</a></li>
+        <li><a href="#">Breast</a></li>
+        <li><a href="#">Gastrointestinal</a></li>
+        <li><a href="#">Gynaecology</a></li>
+        <li><a href="#">Head & neck</a></li>
+        <li><a href="#">Lung</a></li>
+        <li><a href="#">Neuro-oncology</a></li>
+        <li><a href="#">Prostate</a></li>
+        <li><a href="#">Urology</a></li>
+    </ul>
+
+</section>
+
+<section>
+
+    <h2>All</h2>
+
+    <ul class="webinars">
+        
+        <li class="webinar">
+            <video src="#"></video>
+            <span class="duration">1:00:00</span>
+            <h3>IROS CME Webinar: Fractionation in Head & Neck and CNS malignancies; Radiobiology Perspective</h3>
+            <p class="speaker">Prof. R.P. (Rob) Coppes, PhD</p>
+
+            <div>
+                <ul>
+                    <li><span>Head & neck</span></li>
+                    <li><span>Head & neck</span></li>
+                    <li><span>Head & neck</span></li>
+                </ul>
+
+                <a href="#">Watch <img src="#" alt=""></a>
+            </div>
+        </li>
+    </ul>
+
+</section>
+
+{% render 'partials/foot.liquid' %}
