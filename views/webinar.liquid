@@ -1,40 +1,48 @@
 {% render 'partials/head.liquid' %}
 
-<div class="wrapper-detail">
+<div class="wrapper-detail width-top-btm">
     {% for webinar in webinars %}
 
     <section class="left">
 
-        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}" width="150" height="100"
-            style="object-fit: cover"></video>
+        <a class="back-link" href="/">Alle webinars</a>
+
+        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}"></video>
         <h1>{{ webinar.title }}</h1>
 
         <ul class="info-detail">
-            <li>{{ webinar.views }}</li>
-            <li>{{ webinar.date }}</li>
+            <li><img src="/assets/visibility.svg" alt="">{{ webinar.views }}</li>
+            <li><img src="/assets/calendar_month.svg" alt="">{{ webinar.date }}</li>
         </ul>
 
         <ul class="category-detail">
             {% for categorie in webinar.categories %}
-            <li><span>{{ categorie.avl_categories_id.name }}</span></li>
+            <li><p class="categorie-label">{{ categorie.avl_categories_id.name }}</p></li>
             {% endfor %}
         </ul>
 
-        <button>Read transcript</button>
+        <button class="transcript-link">Read transcript</button>
 
         <h2>Description</h2>
         <p>{{ webinar.description }}</p>
-        <button>Read more</button>
+        <button class="read-more-link">Read more</button>
 
-        <h2>Chapters</h2>
+        <h2>The speaker</h2>
 
         <ul class="speakers">
 
             {% for speaker in webinar.speakers %}
             <li class="speaker">
-                <video src="#"></video>
-                <h3>{{ speaker.avl_speakers_id.fullname }}</h3>
-                <p>{{ speaker.avl_speakers_id.entitle }}</p>
+                <div class="left">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ speaker.avl_speakers_id.profile_picture }}" alt="">
+                    
+                    <div class="speaker-info">
+                        <h3>{{ speaker.avl_speakers_id.fullname }}</h3>
+                        <p>{{ speaker.avl_speakers_id.entitle }}</p>
+                    </div>
+                </div>
+
+                <a href="#">About this speaker</a>
             </li>
 
             {% endfor %}
@@ -45,6 +53,7 @@
     <section class="right">
 
         <h2>Q&A</h2>
+        <h3>Ask a question</h3>
 
         <form action="#" method="get">
             <input type="text" name="search-webinar" placeholder="Type a reply...">
@@ -59,8 +68,7 @@
 
                 <li class="webinar">
                     <a href="/webinar/{{ webinar.slug }}">
-                        <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" width="150"
-                            height="100" style="object-fit: cover" />
+                        <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" alt="">
                         <h3>{{ webinar.title }}</h3>
                         <p class="speaker">
                             {% for speaker in webinar.speakers %}
