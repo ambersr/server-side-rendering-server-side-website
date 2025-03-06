@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "VagRundschrift";
+    src: url(/fonts/vagrundschriftd.ttf) format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(/fonts/lato-regular.ttf) format('truetype');
+    font-display: swap;
+}
+
+body {
+    /* ---------- Kleuren ---------- */
+    --primary-background-color: #6b0025;
+    --secondary-background-color: #f0e4e8;
+    --third-background-color-alt: #fff;
+    --primary-highlight-color: #6b0025;
+    --secondary-highlight-color: #d1b2bd;
+
+    --primary-text-color: #000;
+    --secondary-text-color: #fff;
+
+    /* ---------- Fonts ---------- */
+    --font-paragraph: "Lato", sans-serif;
+    --heading-font: "VagRundschrift",
+    sans-serif;
+
+    /* ---------- Border radius ---------- */
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-nav: 3px solid var(--primary-background-color);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--heading-font);
+    font-weight: 400;
+}
+
+h1 {
+    font-size: clamp(2.1875rem, 1.9022rem + 1.3043vw, 2.725rem);
+    line-height: 115%;
+}
+
+h2 {
+    font-size: clamp(1.0rem, 1.2054rem + 0.7143vw, 1.3rem);
+    line-height: 110%;
+}
+
+h3 {
+    font-size: clamp(1.125rem, 1.0826rem + 0.1786vw, 1.25rem);
+    line-height: 115%;
+}
+
+h4 {
+    font-size: clamp(1.25rem, 1.0846rem + 0.8824vw, 2.1875rem);
+    line-height: 118%;
+}
+
+h5 {
+    font-size: clamp(1.125rem, 0.9926rem + 0.7059vw, 1.875rem);
+    line-height: 118%;
+}
+
+h6 {
+    font-size: clamp(1rem, 0.9007rem + 0.5294vw, 1.5625rem);
+    line-height: 118%;
+}
+
+p {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 180%;
+    font-family: var(--font-paragraph);
+    color: var(--primary-text-color);
+}
+
+:focus {
+    outline: var(--focus);
+    border-radius: var(--border-radius-sm);
+}
+
+:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+/* ---------------------------------- Classes kleuren -------------------------------- */
+
+.primary-background {
+    background-color: var(--primary-background-color);
+}
+
+.secondary-background {
+    background-color: var(--secondary-background-color);
+}
+
+.primary-highlight {
+    background-color: var(--primary-highlight-color);
+}
+
+.secondary-highlight {
+    background-color: var(--secondary-highlight-color);
+}
+
+.third-highlight {
+    background-color: var(--third-highlight-color);
+}
+
+.primary-tekst {
+    color: var(--primary-text-color);
+}
+
+.secondary-tekst {
+    color: var(--secondary-text-color);
+}
+
+/* ---------------------------------- List elementen -------------------------------- */
+
+ul {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 200%;
+    font-family: var(--font-paragraph);
+}
+
+ul li {
+    list-style-type: none;
+}
+
+ol {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 140%;
+    font-family: var(--font-paragraph);
+}
+
+/* ---------------------------------- Formulier -------------------------------- */
+
+input {
+    background-color: var(--secondary-text-color);
+    border: none;
+    padding: .8em;
+    border-radius: var(--border-radius-sm);
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    font-family: var(--font-paragraph);
+    color: var(--primary-text-color);
+    width: 100%;
+
+    &::placeholder {
+        color: var(--primary-text-color);
+    }
+}
+
+/* ---------------------------------- Knoppen -------------------------------- */
+
+button {
+    cursor: pointer;
+}
+
+a {
+    font-size: clamp(1rem, 1rem + 0vw, 1rem);
+    line-height: 1.5em;
+    font-family: var(--font-paragraph);
+    color: var(--primary-text-color);
+    transition: transform ease-in-out .2s;
+    text-decoration: none;
+    
+
+    &:hover {
+        color: var(--primary-text-color);
+        background-color: var(--secondary-highlight-color);
+        transition: ease-in-out .2s;
+    }
+}
+
+.filter-link {
+    background-color: var(--secondary-highlight-color);
+    color: var(--primary-text-color);
+    border-radius: var(--border-radius-md);
+    padding: .8em 1.3em .8em 1.3em;
+
+    &:hover {
+        color: var(--secondary-text-color);
+        background-color: var(--primary-background-color);
+        transition: ease-in-out .2s;
+    }
+}
