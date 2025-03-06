@@ -1,11 +1,12 @@
 {% render 'partials/head.liquid' %}
 
 <div class="wrapper-detail">
-{% for webinar in webinars %}
+    {% for webinar in webinars %}
 
     <section class="left">
 
-        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}" width="150" height="100"  style="object-fit: cover"></video>
+        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}" width="150" height="100"
+            style="object-fit: cover"></video>
         <h1>{{ webinar.title }}</h1>
 
         <ul class="info-detail">
@@ -13,10 +14,10 @@
             <li>{{ webinar.date }}</li>
         </ul>
 
-        <u class="category-detail">
-            <li><span>Head & neck</span></li>
-            <li><span>Head & neck</span></li>
-            <li><span>Head & neck</span></li>
+        <ul class="category-detail">
+            {% for categorie in webinar.categories %}
+            <li><span>{{ categorie.avl_categories_id.name }}</span></li>
+            {% endfor %}
         </ul>
 
         <button>Read transcript</button>
