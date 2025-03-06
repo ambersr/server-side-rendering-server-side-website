@@ -1,6 +1,6 @@
 {% render 'partials/head.liquid' %}
 
-<section class="webinar-filters">
+<section class="webinar-filters width-top-btm">
 
     <h1>Webinars</h1>
 
@@ -9,20 +9,20 @@
     </form>
 
     <ul class="category-webinars">
-        <li><a href="#">All</a></li>
-        <li><a href="#">Breast</a></li>
-        <li><a href="#">Gastrointestinal</a></li>
-        <li><a href="#">Gynaecology</a></li>
-        <li><a href="#">Head & neck</a></li>
-        <li><a href="#">Lung</a></li>
-        <li><a href="#">Neuro-oncology</a></li>
-        <li><a href="#">Prostate</a></li>
-        <li><a href="#">Urology</a></li>
-    </ul>
+    <li><a class="filter-link" href="/categorie/all">All</a></li>
+    <li><a class="filter-link" href="/categorie/breast">Breast</a></li>
+    <li><a class="filter-link" href="/categorie/gastrointestinal">Gastrointestinal</a></li>
+    <li><a class="filter-link" href="/categorie/gynaecology">Gynaecology</a></li>
+    <li><a class="filter-link" href="/categorie/head-neck">Head & neck</a></li>
+    <li><a class="filter-link" href="/categorie/lung">Lung</a></li>
+    <li><a class="filter-link" href="/categorie/neuro-oncology">Neuro-oncology</a></li>
+    <li><a class="filter-link" href="/categorie/prostate">Prostate</a></li>
+    <li><a class="filter-link" href="/categorie/urology">Urology</a></li>
+</ul>
 
 </section>
 
-<section>
+<section class="all-webinars width-btm">
 
     <h2>All</h2>
 
@@ -30,25 +30,26 @@
         {% for webinar in webinars %}
 
         <li class="webinar">
-            <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" width="150" height="100"
-                style="object-fit: cover" />
-            <span class="duration">{{ webinar.duration }}</span>
-            <h3>{{ webinar.title }}</h3>
-            <p class="speaker">
-                {% for speaker in webinar.speakers %}
-                {{ speaker.avl_speakers_id.fullname }}
-                {% endfor %}
-            </p>
-
-            <div>
-                <ul>
-                    {% for categorie in webinar.categories %}
-                    <li><span>{{ categorie.avl_categories_id.name }}</span></li>
+            <a href="/webinar/{{ webinar.slug }}">
+                <div class="webinar-img">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}">
+                    <p class="duration">{{ webinar.duration }}</p>
+                </div>
+                <h3>{{ webinar.title }}</h3>
+                <p class="speaker">
+                    {% for speaker in webinar.speakers %}
+                    {{ speaker.avl_speakers_id.fullname }}
                     {% endfor %}
-                </ul>
-
-                <a href="/webinar/{{ webinar.slug }}">Watch <img src="#" alt=""></a>
-            </div>
+                </p>
+                
+                <div>
+                    <ul>
+                        {% for categorie in webinar.categories %}
+                        <li><p class="categorie-label">{{ categorie.avl_categories_id.name }}</p></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </a>
         </li>
 
         {% endfor %}
