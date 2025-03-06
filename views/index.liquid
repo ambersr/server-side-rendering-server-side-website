@@ -43,10 +43,9 @@
             <div>
                 <ul>
                     {% for categorie in webinar.categories %}
-                    <li><span>{{ categorie.name }}</span></li>
+                    <li><span>{{ categorie.avl_categories_id.name }}</span></li>
                     {% endfor %}
                 </ul>
-
 
                 <a href="/webinar/{{ webinar.slug }}">Watch <img src="#" alt=""></a>
             </div>

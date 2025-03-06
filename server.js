@@ -33,18 +33,20 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
-// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+// Algemene link
+const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars";
 
 app.get('/', async function (request, response) {
 
   // Beide API-aanroepen doen
-  const webinarLink = "https://fdnd-agency.directus.app/items/avl_webinars";
-  const webinarFilters = "?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.*"
-  const webinarResponse = await fetch(webinarLink + webinarFilters);
-  const webinarResponseJSON = await webinarResponse.json();
+  const webinarsFilters = "?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*"
 
-  // De gecombineerde data doorgeven aan de view
- response.render('index.liquid', { webinars: webinarResponseJSON.data })
+  const webinarsResponse = await fetch(webinarsLink + webinarsFilters);
+  const webinarsResponseJSON = await webinarsResponse.json();
+
+  // console.log(JSON.stringify(webinarsResponseJSON, null, 2));
+
+ response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
 })
 
@@ -65,3 +67,4 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
+
