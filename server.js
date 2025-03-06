@@ -48,6 +48,7 @@ app.get('/', async function (request, response) {
 
  response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
+
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
