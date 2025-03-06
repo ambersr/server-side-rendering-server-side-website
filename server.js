@@ -5,19 +5,6 @@ import express from 'express'
 // Importeer de Liquid package (ook als dependency via npm geïnstalleerd)
 import { Liquid } from 'liquidjs';
 
-
-console.log('Hieronder moet je waarschijnlijk nog wat veranderen')
-// Doe een fetch naar de data die je nodig hebt
-// const apiResponse = await fetch('...')
-
-// Lees van de response van die fetch het JSON object in, waar we iets mee kunnen doen
-// const apiResponseJSON = await apiResponse.json()
-
-// Controleer eventueel de data in je console
-// (Let op: dit is _niet_ de console van je browser, maar van NodeJS, in je terminal)
-// console.log(apiResponseJSON)
-
-
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
@@ -50,6 +37,16 @@ app.get('/', async function (request, response) {
 });
 
 // Nieuwe route voor url /webinar/:slug
+app.get("/webinar/:slug", async function (request, response){
+  const slug = request.params.slug
+  const webinarFilters = `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,speakers.*,categories.avl_categories_id.*`
+
+  const webinarResponse = await fetch(webinarsLink + webinarFilters);
+  const webinarResponseJSON = await webinarResponse.json();
+
+  // console.log(JSON.stringify(webinarResponseJSON, null, 2));
+
+  response.render("webinar.liquid", { webinars: webinarResponseJSON.data })
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
