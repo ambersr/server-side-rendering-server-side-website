@@ -28,6 +28,18 @@
 
         <h2>Chapters</h2>
 
+        <ul class="speakers">
+
+            {% for speaker in webinar.speakers %}
+            <li class="speaker">
+                <video src="#"></video>
+                <h3>{{ speaker.avl_speakers_id.fullname }}</h3>
+                <p>{{ speaker.avl_speakers_id.entitle }}</p>
+            </li>
+
+            {% endfor %}
+        </ul>
+
     </section>
 
     <section class="right">
@@ -42,20 +54,24 @@
 
             <h2>Watch next</h2>
 
-            <ul class="watch-next-cards">
-                <li class="watch-next-card">
-                    <video src="#"></video>
-                    <h3>
-                        {% for speaker in webinar.speakers %}
-                        {{ speaker.avl_speakers_id.fullname }}
-                        {% endfor %}
-                    </h3>
-                    <p>
-                        {% for speaker in webinar.speakers %}
-                        {{ speaker.avl_speakers_id.entitle }}
-                        {% endfor %}
-                    </p>
+            <ul class="webinars">
+                {% for webinar in webinars %}
+
+                <li class="webinar">
+                    <a href="/webinar/{{ webinar.slug }}">
+                        <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" width="150"
+                            height="100" style="object-fit: cover" />
+                        <h3>{{ webinar.title }}</h3>
+                        <p class="speaker">
+                            {% for speaker in webinar.speakers %}
+                            {{ speaker.avl_speakers_id.fullname }}
+                            {% endfor %}
+                        </p>
+                        <span class="duration">{{ webinar.date }}</span>
+                    </a>
                 </li>
+
+                {% endfor %}
             </ul>
         </section>
     </section>

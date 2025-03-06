@@ -39,7 +39,7 @@ app.get('/', async function (request, response) {
 // Nieuwe route voor url /webinar/:slug
 app.get("/webinar/:slug", async function (request, response){
   const slug = request.params.slug
-  const webinarFilters = `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,speakers.*,categories.avl_categories_id.*`
+  const webinarFilters = `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`
 
   const webinarResponse = await fetch(webinarsLink + webinarFilters);
   const webinarResponseJSON = await webinarResponse.json();
@@ -66,4 +66,3 @@ app.listen(app.get('port'), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get('port')}`)
 })
-
