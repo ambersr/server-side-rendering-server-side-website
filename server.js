@@ -49,6 +49,7 @@ app.get('/', async function (request, response) {
  response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
 
+// Nieuwe route voor url /webinar/:slug
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
