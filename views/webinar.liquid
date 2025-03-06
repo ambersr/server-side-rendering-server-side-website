@@ -1,18 +1,20 @@
 {% render 'partials/head.liquid' %}
 
-<div class="wrapper-detail width-top-btm">
+<div class="terug width-top-btm">
+    <a class="back-link" href="/"><img src="/assets/arrow-left.svg" alt="">Alle webinars</a>
+</div>
+
+<div class="wrapper-detail width-btm">
     {% for webinar in webinars %}
 
     <section class="left">
-
-        <a class="back-link" href="/">Alle webinars</a>
 
         <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}"></video>
         <h1>{{ webinar.title }}</h1>
 
         <ul class="info-detail">
-            <li><img src="/assets/visibility.svg" alt="">{{ webinar.views }}</li>
-            <li><img src="/assets/calendar_month.svg" alt="">{{ webinar.date }}</li>
+            <li><img src="/assets/visibility.svg" alt="">{{ webinar.views }} views</li>
+            <li><img src="/assets/calendar_month.svg" alt="">{{ webinar.date | date: "%d %b %Y" }}</li>
         </ul>
 
         <ul class="category-detail">
@@ -75,7 +77,7 @@
                             {{ speaker.avl_speakers_id.fullname }}
                             {% endfor %}
                         </p>
-                        <span class="duration">{{ webinar.date }}</span>
+                        <p class="date">{{ webinar.date | date: "%d %b %Y" }}</p>
                     </a>
                 </li>
 

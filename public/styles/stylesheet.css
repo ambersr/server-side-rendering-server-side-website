@@ -24,6 +24,7 @@ body {
     --third-background-color-alt: #fff;
     --primary-highlight-color: #6b0025;
     --secondary-highlight-color: #d1b2bd;
+    --third-highlight-color: #1F000B;
 
     --primary-text-color: #000;
     --secondary-text-color: #fff;
@@ -199,14 +200,19 @@ a {
 }
 
 .back-link {
-    background-color: var(--secondary-highlight-color);
-    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+
+    background-color: var(--primary-background-color);
+     color: var(--secondary-text-color);
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
+    width: 10.4em;
 
      &:hover {
-        background-color: var(--primary-background-color);
-        color: var(--secondary-text-color);
+        background-color: var(--secondary-highlight-color);
+        color: var(--primary-text-color);
          transition: ease-in-out .2s;
      }
 }
@@ -229,6 +235,7 @@ a {
     color: var(--secondary-text-color);
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
+    width: 8em;
 
     &:hover {
         background-color: var(--secondary-highlight-color);

@@ -1,4 +1,4 @@
-.desktop-nav {
+.main-nav {
     position: fixed;
     bottom: 0;
     display: flex;
@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: var(--primary-background-color);
+    z-index: 99;
     
     .logo {
         display: none;
@@ -83,6 +84,7 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    padding-top: 9em !important;
 
     .category-webinars {
         display: flex;
@@ -100,12 +102,20 @@
 
     .webinars {
 
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1.5em;
+        padding: 1.5em 0em 0em 0em;
 
         .webinar {
             width: 100%;
+           transition: ease-in-out .2s;
+            
+
+            &:hover {
+                translate: 0em -.7em;
+                transition: ease-in-out .2s;
+            }
 
             a {
 
@@ -122,7 +132,7 @@
                      }
 
                      .duration {
-                         background-color: var(--primary-background-color);
+                         background-color: var(--third-highlight-color);
                          color: var(--secondary-text-color);
                          display: inline-block;
                          border-radius: var(--border-radius-sm);
@@ -136,8 +146,10 @@
                 margin: -1em 0em 0em 0em;
             }
 
-            .speaker {
+            p.speaker {
                 padding: .5em 0em;
+                text-transform: uppercase;
+                color: var(--primary-background-color);
             }
             
             .categorie-label {
@@ -154,10 +166,33 @@ footer {
     display: flex;
     flex-direction: column-reverse;
     gap: 1em;
+
+     @media screen and (min-width: 960px) {
+         flex-direction: row;
+         justify-content: space-between;
+         align-items: center;
+
+         ul {
+            display: flex;
+            flex-direction: row;
+            gap: 2em;
+            list-style-type: disc;
+         }
+     }
 }
 
 
 /* ------------------------------ Detailpagina Webinar ----------------------------------- */
+
+.terug {
+
+     @media screen and (min-width: 960px) {
+         flex-direction: row;
+         gap: 3em;
+         padding-top: 9em !important;
+         margin-bottom: -2em;
+     }
+}
 
 .wrapper-detail {
 
@@ -165,12 +200,21 @@ footer {
     flex-direction: column;
     gap: 1em;
 
+     @media screen and (min-width: 960px) {
+            flex-direction: row;
+            gap: 3em;
+     }
+
     .left {
 
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 1em;
+
+        @media screen and (min-width: 960px) {
+            width: 95%;
+        }
 
         .back-link {
             display: inline-block;
@@ -180,6 +224,16 @@ footer {
             width: 100%;
             height: 15em;
             border-radius: var(--border-radius-md);
+            object-fit: cover;
+
+            @media screen and (min-width: 960px) {
+                height: 25em;
+            }
+        }
+
+        h1 {
+             font-size: clamp(1.8rem, 1.9022rem + 1.3043vw, 1.8rem);
+             line-height: 115%;
         }
 
         .info-detail {
@@ -192,7 +246,7 @@ footer {
                 flex-direction: row;
                 align-items: center;
                 gap: .5em;
-
+                color: var(--primary-background-color);
                 
             }
         }
@@ -240,7 +294,6 @@ footer {
         gap: 1em;
 
         .watch-next {
-
             display: flex;
             flex-direction: column;
             gap: 1em;
@@ -248,13 +301,32 @@ footer {
             .webinars {
 
                 .webinar {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1em;
 
                     a {
+                         display: flex;
+                         flex-direction: column;
+                         gap: .5em;
 
                          img {
                              width: 100%;
                              height: 17em;
                              border-radius: var(--border-radius-md);
+                         }
+
+                         h3 {
+                            padding: .6em 0em 0em 0em;
+                         }
+
+                         .speaker {
+                            text-transform: uppercase;
+                            color: var(--primary-background-color);
+                         }
+
+                         .date {
+                            color: var(--primary-background-color);
                          }
                     }
                 }
