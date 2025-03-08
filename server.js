@@ -20,18 +20,19 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// Functie fetch omzetten naar JSON
+async function fetchJson(url) {
+  const response = await fetch(url);
+  const responseJSON = await response.json();
+  return responseJSON
+}
+
 // Algemene link
 const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars";
 
 app.get('/', async function (request, response) {
 
-  // Beide API-aanroepen doen
-  const webinarsFilters = "?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*"
-
-  const webinarsResponse = await fetch(webinarsLink + webinarsFilters);
-  const webinarsResponseJSON = await webinarsResponse.json();
-
-  // console.log(JSON.stringify(webinarsResponseJSON, null, 2));
+  const webinarsResponseJSON = await fetchJson(webinarsLink + "?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*");
 
  response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
@@ -39,12 +40,8 @@ app.get('/', async function (request, response) {
 // Nieuwe route voor url /webinar/:slug
 app.get("/webinar/:slug", async function (request, response){
   const slug = request.params.slug
-  const webinarFilters = `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`
 
-  const webinarResponse = await fetch(webinarsLink + webinarFilters);
-  const webinarResponseJSON = await webinarResponse.json();
-
-  // console.log(JSON.stringify(webinarResponseJSON, null, 2));
+  const webinarResponseJSON = await fetchJson(webinarsLink + `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`);
 
   response.render("webinar.liquid", { webinars: webinarResponseJSON.data })
 })
