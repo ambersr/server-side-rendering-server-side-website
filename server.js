@@ -30,6 +30,7 @@ async function fetchJson(url) {
 // Algemene link
 const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*";
 
+// Route voor Homepagina (index)
 app.get('/', async function (request, response) {
 
   const webinarsResponseJSON = await fetchJson(webinarsLink);
@@ -37,7 +38,7 @@ app.get('/', async function (request, response) {
  response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
 
-// Nieuwe route voor url /webinar/:slug
+// Route voor url /webinar/:slug
 app.get("/webinar/:slug", async function (request, response){
   const slug = request.params.slug
 
