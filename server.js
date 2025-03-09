@@ -28,11 +28,11 @@ async function fetchJson(url) {
 }
 
 // Algemene link
-const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars";
+const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*";
 
 app.get('/', async function (request, response) {
 
-  const webinarsResponseJSON = await fetchJson(webinarsLink + "?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*");
+  const webinarsResponseJSON = await fetchJson(webinarsLink);
 
  response.render('index.liquid', { webinars: webinarsResponseJSON.data })
 });
