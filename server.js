@@ -47,6 +47,20 @@ app.get("/webinar/:slug", async function (request, response){
 })
 
 // Route voor url categorie/:category
+app.get('/categorie/:category', async function (request, response) {
+  const categoryWebinar = request.params.category;
+  let categoryFilter = '';
+
+  // Controleer of de categorie niet 'all' is
+  if (categoryWebinar !== 'all') {
+    categoryFilter = `&filter={"_and":[{"categories":{"avl_categories_id":{"name":"${categoryWebinar}"}}}]}`;
+  }
+
+  // Roep de fetchJson functie aan met de filter en basis-URL
+  const categoryWebinarJSON = await fetchJson(webinarsLink + categoryFilter);
+  response.render('index.liquid', { webinars: categoryWebinarJSON.data });
+});
+
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
 // Hier doen we nu nog niets mee, maar je kunt er mee spelen als je wilt
 app.post('/', async function (request, response) {
