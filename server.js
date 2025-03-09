@@ -48,7 +48,7 @@ app.get("/webinar/:slug", async function (request, response){
 })
 
 // Route voor url categorie/:category
-app.get('/categorie/:category', async function (request, response) {
+app.get('/category/:category', async function (request, response) {
   const categoryWebinar = request.params.category;
   let categoryFilter = '';
 
