@@ -60,7 +60,7 @@ h1 {
 }
 
 h2 {
-    font-size: clamp(1.0rem, 1.2054rem + 0.7143vw, 1.3rem);
+    font-size: clamp(1.5rem, 1.6rem + 0.7143vw, 1.8rem);
     line-height: 110%;
 }
 
@@ -240,6 +240,20 @@ a {
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
     width: 8em;
+
+    &:hover {
+        background-color: var(--secondary-highlight-color);
+        color: var(--primary-text-color);
+        transition: ease-in-out .2s;
+    }
+}
+
+.red-link {
+    background-color: var(--primary-background-color);
+    color: var(--secondary-text-color);
+    border-radius: var(--border-radius-md);
+    padding: .8em 1.3em .8em 1.3em;
+    align-self: flex-start;
 
     &:hover {
         background-color: var(--secondary-highlight-color);
