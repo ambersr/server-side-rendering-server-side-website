@@ -29,20 +29,46 @@ async function fetchJson(url) {
 
 // Algemene link
 const webinarsLink = "https://fdnd-agency.directus.app/items/avl_webinars?fields=duration,title,slug,date,video,thumbnail,.*.*,speakers.*.*,categories.avl_categories_id.*";
+const algemeneLink = "https://fdnd-agency.directus.app/items/avl_webinars";
+const categoryLink = "https://fdnd-agency.directus.app/items/avl_categories";
 
 // Route voor Homepagina (index)
-app.get('/', async function (request, response) {
+app.get('/', async function (req, res) {
+    // Fetches webinars en categories
+    const webinarsResponseJSON = await fetchJson(webinarsLink);
 
-  const webinarsResponseJSON = await fetchJson(webinarsLink);
-
- response.render('index.liquid', { webinars: webinarsResponseJSON.data })
+   res.render("index.liquid", { webinars: webinarsResponseJSON.data })
 });
+
+// Route voor url /webinar/:slug
+app.get("/webinars", async function (req, res){
+ 
+    const categoryFilter = req.query.category || ""; // Haalt categorie uit de URL
+
+    // Fetches webinars en categories
+    const webinarsResponseJSON = await fetchJson(webinarsLink);
+    const categoryResponseJSON = await fetchJson(categoryLink);
+
+    let filteredWebinars = webinarsResponseJSON.data;
+
+    if (categoryFilter) {
+        filteredWebinars = filteredWebinars.filter(webinar =>
+            webinar.categories.some(cat => cat.avl_categories_id.name === categoryFilter)
+        );
+    }
+
+  res.render('webinars.liquid', { 
+        webinars: filteredWebinars, 
+        categories: categoryResponseJSON.data,
+        selectedCategory: categoryFilter // Zorgt dat de juiste radio button gecheckt blijft
+    });
+})
 
 // Route voor url /webinar/:slug
 app.get("/webinar/:slug", async function (request, response){
   const slug = request.params.slug
 
-  const webinarResponseJSON = await fetchJson(webinarsLink + `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`);
+  const webinarResponseJSON = await fetchJson(algemeneLink + `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`);
 
   response.render("webinar.liquid", { webinars: webinarResponseJSON.data })
 })
