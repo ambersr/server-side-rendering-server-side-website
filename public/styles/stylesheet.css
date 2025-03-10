@@ -153,7 +153,7 @@ ol {
 input {
     background-color: var(--secondary-text-color);
     border: none;
-    padding: .8em;
+    padding: .9em;
     border-radius: var(--border-radius-sm);
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-family: var(--font-paragraph);
@@ -226,6 +226,10 @@ a {
     color: var(--secondary-text-color);
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
+
+    img {
+        width: 1.2em;
+    }
 
     &:hover {
         background-color: var(--secondary-highlight-color);
