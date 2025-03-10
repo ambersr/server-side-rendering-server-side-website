@@ -1,3 +1,9 @@
+body {
+    overflow-x: hidden;
+}
+
+/* ------------------------------ Navigatie (header) ----------------------------------- */
+
 .main-nav {
     position: fixed;
     bottom: 0;
@@ -80,11 +86,214 @@
     }
 }
 
+/* ------------------------------ Homepagina ----------------------------------- */
+
+.wrapper-webinars-home {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow-x: hidden;
+    padding-top: 3em !important;
+
+    @media screen and (min-width: 960px) {
+        padding-top: 9em !important;
+    }
+
+    h1 {
+        text-align: left;
+        padding: 0 0 .5em 0;
+    }
+
+    .introduction {
+        width: 100%;
+        align-self: left;
+        text-align: left;
+
+        @media screen and (min-width: 960px) {
+            width: 40em;
+            padding: 0 0 2em 0;
+        }
+    }
+
+    form {
+        padding: 0 0 2em 0;
+
+        input {
+            float: left;
+            width: 85%;
+            border-radius: 1em 0em 0em 1em !important;
+        }
+
+        button {
+            float: left;
+            width: 15%;
+            border-radius: 0em 1em 1em 0em !important;
+        }
+    }
+
+    .wrapper-webinars {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1.5em;
+
+        .webinars {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5em;
+            min-width: max-content;
+            padding: 1em 0em;
+
+            .webinar {
+                width: 24em;
+                transition: ease-in-out .2s;
+
+
+                &:hover {
+                    translate: 0em -.7em;
+                    transition: ease-in-out .2s;
+                }
+
+                a {
+
+                    .webinar-img {
+
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: flex-end;
+
+                        img {
+                            width: 100%;
+                            border-radius: var(--border-radius-md);
+                        }
+
+                        .duration {
+                            background-color: var(--third-highlight-color);
+                            color: var(--secondary-text-color);
+                            display: inline-block;
+                            border-radius: var(--border-radius-sm);
+                            padding: 0em .5em;
+                            translate: -.8em -2.5em;
+                        }
+                    }
+                }
+
+                h3 {
+                    margin: -1em 0em 0em 0em;
+                }
+
+                p.speaker {
+                    padding: .5em 0em;
+                    text-transform: uppercase;
+                    color: var(--primary-background-color);
+                }
+
+                .categorie-label {
+                    background-color: var(--secondary-highlight-color);
+                    padding: 0.2em .5em;
+                    display: inline-block;
+                    border-radius: var(--border-radius-sm);
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
+
+.wrapper-contourings-home {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .wrapper-contourings {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 1.5em;
+
+        .contourings {
+            display: flex;
+            flex-direction: row;
+            gap: 1.5em;
+            min-width: max-content;
+            padding: 1em 0;
+
+            .contouring {
+                transition: ease-in-out .2s;
+
+                &:hover {
+                    translate: 0em -.7em;
+                    transition: ease-in-out .2s;
+                }
+
+                a {
+
+                    display: flex;
+                    flex-direction: column;
+
+                    img {
+                        width: 20em;
+                        border-radius: var(--border-radius-md);
+                    }
+
+                    h3 {
+                        margin-top: -1em;
+                    }
+
+                    .user {
+                        padding: .5em 0em;
+                        text-transform: uppercase;
+                        color: var(--primary-background-color);
+                    }
+
+                    .categories {
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        .categorie-label {
+                            background-color: #fff;
+                            padding: 0.2em .5em;
+                            display: inline-block;
+                            border-radius: var(--border-radius-sm);
+                            align-self: flex-end;
+                            translate: -1em -3em;
+                            text-transform: capitalize;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ------------------------------ Webinar overzichtspagina ----------------------------------- */
+
 .webinar-filters {
     display: flex;
     flex-direction: column;
     gap: 1em;
     padding-top: 9em !important;
+
+    h1 {
+                padding: 0 0 .5em 0;
+    }
+
+    form {
+
+        input {
+            float: left;
+            width: 85%;
+            border-radius: 1em 0em 0em 1em !important;
+        }
+
+        button {
+            float: left;
+            width: 15%;
+            border-radius: 0em 1em 1em 0em !important;
+        }
+    }
 
     .label-filter {
         padding: 2em 0em 0em 0em;
@@ -182,6 +391,7 @@
                 padding: 0.2em .5em;
                 display: inline-block;
                 border-radius: var(--border-radius-sm);
+                text-transform: capitalize;
             }
         }
     }
@@ -191,6 +401,8 @@ footer {
     display: flex;
     flex-direction: column-reverse;
     gap: 1em;
+    padding-top: 2em !important;
+    padding-bottom: 2em !important;
 
     @media screen and (min-width: 960px) {
         flex-direction: row;
@@ -367,8 +579,18 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1em;
-    height: 75vh;
+    gap: 1.5em;
+    height: 86vh;
+
+    p {
+        width: 100%;
+        text-align: center;
+        padding: 0 0 1em 0;
+
+        @media screen and (min-width: 960px) {
+            width: 33em;
+        }
+    }
 
     .navigatie-error {
         display: flex;
