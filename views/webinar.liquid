@@ -9,7 +9,9 @@
 
     <section class="left">
 
-        <video src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}"></video>
+        <video controls>
+            <source src="https://fdnd-agency.directus.app/assets/{{ webinar.video }}" />
+        </video>
         <h1>{{ webinar.title }}</h1>
 
         <ul class="info-detail">
@@ -19,7 +21,9 @@
 
         <ul class="category-detail">
             {% for categorie in webinar.categories %}
-            <li><p class="categorie-label">{{ categorie.avl_categories_id.name }}</p></li>
+            <li>
+                <p class="categorie-label">{{ categorie.avl_categories_id.name }}</p>
+            </li>
             {% endfor %}
         </ul>
 
@@ -36,8 +40,9 @@
             {% for speaker in webinar.speakers %}
             <li class="speaker">
                 <div class="left">
-                    <img src="https://fdnd-agency.directus.app/assets/{{ speaker.avl_speakers_id.profile_picture }}" alt="">
-                    
+                    <img src="https://fdnd-agency.directus.app/assets/{{ speaker.avl_speakers_id.profile_picture }}"
+                        alt="">
+
                     <div class="speaker-info">
                         <h3>{{ speaker.avl_speakers_id.fullname }}</h3>
                         <p>{{ speaker.avl_speakers_id.entitle }}</p>
