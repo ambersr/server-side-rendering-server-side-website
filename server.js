@@ -51,7 +51,7 @@ app.get("/webinars", async function (req, res){
 
     let filteredWebinars = webinarsResponseJSON.data;
 
-    if (categoryFilter) {
+     if (categoryFilter !== "") {
         filteredWebinars = filteredWebinars.filter(webinar =>
             webinar.categories.some(cat => cat.avl_categories_id.name === categoryFilter)
         );
