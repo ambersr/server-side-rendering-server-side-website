@@ -1,3 +1,87 @@
 {% render 'partials/head.liquid', title: 'Home' %}
 
+
+<section class="wrapper-webinars-home width-top-btm">
+
+    <h1>Welcome at Oncollaboration</h1>
+
+    <form action="#" method="get">
+        <input class="search" type="text" name="search-webinar" placeholder="Search for a Webinar or Contouring..">
+        <button class="transcript-link" type="submit">Search</button>
+    </form>
+
+    <h2>Webinars</h2>
+
+    <div class="wrapper-webinars">
+        <ul class="webinars">
+            {% for webinar in webinars %}
+
+            <li class="webinar">
+                <a href="/webinar/{{ webinar.slug }}">
+                    <div class="webinar-img">
+                        <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" alt="">
+                        <p class="duration">{{ webinar.duration }}</p>
+                    </div>
+                    <h3>{{ webinar.title }}</h3>
+                    <p class="speaker">
+                        {% for speaker in webinar.speakers %}
+                        {{ speaker.avl_speakers_id.fullname }}
+                        {% endfor %}
+                    </p>
+
+                    <div>
+                        <ul>
+                            {% for categorie in webinar.categories %}
+                            <li>
+                                <p class="categorie-label">{{ categorie.avl_categories_id.name }}</p>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </div>
+
+    <a class="red-link" href="/webinars">See all webinars</a>
+
+</section>
+
+<section class="wrapper-contourings-home width-btm">
+
+    <h2>Contourings</h2>
+
+    <div class="wrapper-contourings">
+
+        <ul class="contourings">
+
+            {% for contouring in contourings %}
+
+            <li class="contouring">
+                <a href="#">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ contouring.image_scan }}"
+                        alt="{{ contouring.title }}">
+                    <ul class="categories">
+                        {% for categorie in contouring.categories %}
+                        <li class="category">
+                            <p class="categorie-label">{{ categorie.avl_categories_id.name }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <h3>{{ contouring.title }}</h3>
+                    <p class="user">{{ contouring.user_id.fullname }}</p>
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+
+    </div>
+
+    <a class="red-link" href="/contourings">See all contourings</a>
+
+</section>
+
 {% render 'partials/foot.liquid' %}
