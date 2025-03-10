@@ -86,12 +86,33 @@
     gap: 1em;
     padding-top: 9em !important;
 
-    .category-webinars {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0em .5em;
-        padding: 1em 0em 0em 0em;
+    .label-filter {
+        padding: 2em 0em 0em 0em;
+    }
+}
+
+/* Active class toegevoegd bij klikken categorie */
+.active {
+    color: var(--secondary-text-color) !important;
+    background-color: var(--primary-background-color) !important;
+}
+
+.filter-form {
+
+    display: flex;
+    flex-direction: row;
+    gap: .7em;
+
+    label {
+        cursor: pointer;
+        background-color: var(--secondary-highlight-color);
+        color: var(--primary-text-color);
+        border-radius: var(--border-radius-md);
+        padding: .8em 1.3em .8em 1.3em;
+
+        input[type="radio"] {
+            display: none;
+        }
     }
 }
 
@@ -99,6 +120,10 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+
+    .category-title {
+        text-transform: capitalize;
+    }
 
     .webinars {
 
@@ -353,13 +378,13 @@ footer {
         li {
             padding: 0em 1em;
 
-             &:nth-of-type(1) {
-                 border-right: 1px solid var(--secondary-highlight-color);
-             }
+            &:nth-of-type(1) {
+                border-right: 1px solid var(--secondary-highlight-color);
+            }
 
-              &:nth-of-type(2) {
-                  border-right: 1px solid var(--secondary-highlight-color);
-              }
+            &:nth-of-type(2) {
+                border-right: 1px solid var(--secondary-highlight-color);
+            }
 
             &:nth-of-type(3) {
                 border-right: 1px solid var(--secondary-highlight-color);
