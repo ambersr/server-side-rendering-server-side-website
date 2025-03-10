@@ -39,7 +39,14 @@
 
 <section class="all-webinars width-btm">
 
-    <h2>All</h2>
+    <h2 class="category-title">
+        {% if selectedCategory and selectedCategory != "" %}
+        {{ selectedCategory }}
+        {% else %}
+        All
+        {% endif %}
+    </h2>
+
 
     <ul class="webinars">
         {% for webinar in webinars %}
