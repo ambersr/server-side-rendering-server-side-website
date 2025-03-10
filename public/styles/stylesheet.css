@@ -165,7 +165,7 @@ input {
 }
 
 .search {
-      width: 100%;
+    width: 100%;
 }
 
 /* ---------------------------------- Knoppen -------------------------------- */
@@ -193,7 +193,8 @@ a {
     color: var(--primary-text-color);
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
-    line-height: 3.6em;
+    font-family: var(--font-paragraph);
+    text-transform: capitalize;
 
     &:hover {
         color: var(--secondary-text-color);
@@ -208,16 +209,16 @@ a {
     gap: 1em;
 
     background-color: var(--primary-background-color);
-     color: var(--secondary-text-color);
+    color: var(--secondary-text-color);
     border-radius: var(--border-radius-md);
     padding: .8em 1.3em .8em 1.3em;
     width: 10.4em;
 
-     &:hover {
+    &:hover {
         background-color: var(--secondary-highlight-color);
         color: var(--primary-text-color);
-         transition: ease-in-out .2s;
-     }
+        transition: ease-in-out .2s;
+    }
 }
 
 .transcript-link {
@@ -227,8 +228,8 @@ a {
     padding: .8em 1.3em .8em 1.3em;
 
     &:hover {
-       background-color: var(--secondary-highlight-color);
-       color: var(--primary-text-color);
+        background-color: var(--secondary-highlight-color);
+        color: var(--primary-text-color);
         transition: ease-in-out .2s;
     }
 }
