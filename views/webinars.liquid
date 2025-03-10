@@ -11,20 +11,22 @@
 
     <p class="label-filter">Filter by category</p>
 
-    <form class="filter-form">
-        <label class="filter-link">
-            <input type="radio" name="category" value="" {% if not selectedCategory or selectedCategory=="" %}checked{%
-                endif %}> All
-        </label>
+    <div class="wrapper-filter">
+        <form class="filter-form">
+            <label class="filter-link">
+                <input type="radio" name="category" value="" {% if not selectedCategory or selectedCategory==""
+                    %}checked{% endif %}> All
+            </label>
 
-        {% for category in categories %}
-        <label class="filter-link">
-            <input type="radio" name="category" value="{{ category.name }}" {% if selectedCategory==category.name
-                %}checked{% endif %}>
-            {{ category.name }}
-        </label>
-        {% endfor %}
-    </form>
+            {% for category in categories %}
+            <label class="filter-link">
+                <input type="radio" name="category" value="{{ category.name }}" {% if selectedCategory==category.name
+                    %}checked{% endif %}>
+                {{ category.name }}
+            </label>
+            {% endfor %}
+        </form>
+    </div>
 
 </section>
 
