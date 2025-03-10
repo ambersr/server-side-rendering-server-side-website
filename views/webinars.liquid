@@ -1,0 +1,77 @@
+{% render 'partials/head.liquid', title: 'Webinars' %}
+
+<section class="webinar-filters width-top-btm">
+
+    <h1>Webinars</h1>
+
+    <form action="#" method="get">
+        <input class="search" type="text" name="search-webinar" placeholder="Search for a Webinar">
+    </form>
+
+
+    <form id="filter-form">
+        <label>
+            <input type="radio" name="category" value="" {% if not selectedCategory %}checked{% endif %}> All
+        </label>
+
+        {% for category in categories %}
+        <label>
+            <input type="radio" name="category" value="{{ category.name }}" {% if selectedCategory==category.name
+                %}checked{% endif %}>
+            {{ category.name }}
+        </label>
+        {% endfor %}
+    </form>
+
+    <ul class="category-webinars">
+        <li><a class="filter-link" href="/category/all">All</a></li>
+        <li><a class="filter-link" href="/category/breast">Breast</a></li>
+        <li><a class="filter-link" href="/category/gastrointestinal">Gastrointestinal</a></li>
+        <li><a class="filter-link" href="/category/gynaecology">Gynaecology</a></li>
+        <li><a class="filter-link" href="/category/head-neck">Head & neck</a></li>
+        <li><a class="filter-link" href="/category/lung">Lung</a></li>
+        <li><a class="filter-link" href="/category/neuro-oncology">Neuro-oncology</a></li>
+        <li><a class="filter-link" href="/category/prostate">Prostate</a></li>
+        <li><a class="filter-link" href="/category/urology">Urology</a></li>
+    </ul>
+
+</section>
+
+<section class="all-webinars width-btm">
+
+    <h2>All</h2>
+
+    <ul class="webinars">
+        {% for webinar in webinars %}
+
+        <li class="webinar">
+            <a href="/webinar/{{ webinar.slug }}">
+                <div class="webinar-img">
+                    <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" alt="">
+                    <p class="duration">{{ webinar.duration }}</p>
+                </div>
+                <h3>{{ webinar.title }}</h3>
+                <p class="speaker">
+                    {% for speaker in webinar.speakers %}
+                    {{ speaker.avl_speakers_id.fullname }}
+                    {% endfor %}
+                </p>
+
+                <div>
+                    <ul>
+                        {% for categorie in webinar.categories %}
+                        <li>
+                            <p class="categorie-label">{{ categorie.avl_categories_id.name }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </a>
+        </li>
+
+        {% endfor %}
+    </ul>
+
+</section>
+
+{% render 'partials/foot.liquid' %}
