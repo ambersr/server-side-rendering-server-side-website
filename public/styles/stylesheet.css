@@ -158,11 +158,14 @@ input {
     font-size: clamp(1rem, 1rem + 0vw, 1rem);
     font-family: var(--font-paragraph);
     color: var(--primary-text-color);
-    width: 100%;
 
     &::placeholder {
         color: var(--primary-text-color);
     }
+}
+
+.search {
+      width: 100%;
 }
 
 /* ---------------------------------- Knoppen -------------------------------- */
