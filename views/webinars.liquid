@@ -50,7 +50,6 @@
                     <img src="https://fdnd-agency.directus.app/assets/{{ webinar.thumbnail }}" alt="">
                     <p class="duration">{{ webinar.duration }}</p>
                 </div>
-                <h3>{{ webinar.title }}</h3>
                 <p class="speaker">
                     {% for speaker in webinar.speakers %}
                     {{ speaker.avl_speakers_id.fullname }}
