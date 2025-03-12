@@ -65,15 +65,15 @@ https://github.com/user-attachments/assets/2dd629de-f9d7-4cb0-b162-897633b9b7a5
 In dit project wordt er gebruik gemaakt van Node.js en Express om de webserver te beheren. Voor het genereren van dynamische HTML-pagina's wordt Liquid gebruikt, wat de webpagina's flexibel en makkelijk te onderhouden maakt.
 
 ### Route-configuraties
-- Homepagina `/`: De webserver haalt gegevens op via de Directus API en toont deze op de hoofdpagina `index.liquid`.
-- Webinars overzichtspagina `/webinars/`: Hier worden webinars opgehaald en kunnen gebruikers deze filteren op categorie. De data wordt weergegeven in de template `webinars.liquid`.
-- Webinar Detailpagina `/webinars/:slug` : Deze route haalt de informatie van een specifiek webinar op basis van de slug in de URL en toont deze op de `webinar.liquid`.
+- Homepagina `[/](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L38-L47)`: De webserver haalt gegevens op via de Directus API en toont deze op de hoofdpagina `[index.liquid](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/index.liquid)`.
+- Webinars overzichtspagina `[/webinars/](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L50-L71)`: Hier worden webinars opgehaald en kunnen gebruikers deze filteren op categorie. De data wordt weergegeven in de template `[webinars.liquid](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/webinars.liquid)`.
+- Webinar Detailpagina `[/webinar/:slug/](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L73-L85)` : Deze route haalt de informatie van een specifiek webinar op basis van de slug in de URL en toont deze op de `[webinar.liquid](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/webinar.liquid)`.
 
 ### Data ophalen uit database
-- Data ophalen via API: De server maakt een API-aanroep om de benodigde gegevens op te halen in JSON-formaat. Voorbeeld
-- Data doorgeven aan Liquid: De opgehaalde data wordt doorgegeven aan de Liquid-template via response.render(). Voorbeeld
-- Data verwerken in Liquid: In de Liquid-template wordt de data met behulp van loops en variabelen verwerkt en weergegeven. Voorbeeld
-- HTML genereren en tonen: Liquid genereert de HTML, die naar de browser wordt gestuurd en zichtbaar wordt voor de gebruiker. Voorbeeld
+- Data ophalen via API: De server maakt een API-aanroep om de benodigde gegevens op te halen in JSON-formaat. [Voorbeeld](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L77)
+- Data doorgeven aan Liquid: De opgehaalde data wordt doorgegeven aan de Liquid-template via response.render(). [Voorbeeld](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L81-L85)
+- Data verwerken in Liquid: In de Liquid-template wordt de data met behulp van loops en variabelen verwerkt en weergegeven. [Voorbeeld](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/views/webinar.liquid#L52-L53)
+- HTML genereren en tonen: Liquid genereert de HTML, die naar de browser wordt gestuurd en zichtbaar wordt voor de gebruiker.
 
 ## Installatie
 
