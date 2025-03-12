@@ -62,12 +62,37 @@ Alle pagina's zijn mobile first ontwikkeld. Dit houdt in de pagina's vanuit een 
 https://github.com/user-attachments/assets/2dd629de-f9d7-4cb0-b162-897633b9b7a5
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+In dit project maak ik gebruik van Node.js samen met Express om een webserver op te zetten. Tevens gebruik ik Liquid als template om dynamische HTML-pagina's te creëren, waardoor de webpagina's flexibel en eenvoudig te onderhouden zijn.
+
+### Route-configuraties
+- Homepagina `/`: De webserver haalt informatie op via de Directus API, waaronder gegevens over webinars en contourings. Al deze data wordt getoont op de hoofdpagina `index.liquid`.
+- Webinars overzichtspagina `/webinars/`: Hier worden webinars opgehaald en kunnen gebruikers de webinars filteren op categorie. Al deze data wordt getoont op de `webinars.liquid`.
+- Webinar Detailpagina `/webinars/:slug` : Deze route haalt de informatie op van een specifiek webinar, op basis van de slug die in de URL staat. Op deze pagina wordt specifieke data getoont speciek van de desbetreffende webinar. Al deze data wordt getoont op de `webinar.liquid`.
+
+### Data ophalen uit database
+- De data wordt opgehaald uit een database waarin alle benodigde content staat. Voorbeeld
+- Deze data wordt gefetched zodat de data op de pagina getoond wordt. Voorbeeld
+- De data die gefetched wordt wordt gerenderd. Voorbeeld
+- In de liquid aan de hand van een `for` loop wordt de juiste data ingeladen. Voorbeeld
 
 ## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+
+De meeste informatie is te vinden bij het kopje kenmerken. Voor verdere gebruik van mijn project zijn dit nog een paar handige benodigdheden.
+
+#### `npm i` of `npm install`
+Hiermee installeer je de benodigde packages zoals express & cookie-parser.
+
+#### `npm start`
+Hiermee start je het project.
+
+Open vervolgens [http://localhost:8000](http://localhost:8000) om het project te zien in de browser.
+
+Om edits te zien moet je de pagina refreshen omdat het geen hot-reload bevat.
 
 ## Bronnen
+
+- Styling, https://github.com/fdnd-agency/oncollaboration/wiki/Design-Challenge
+- Content, https://github.com/fdnd-agency/oncollaboration
 
 ## Licentie
 
