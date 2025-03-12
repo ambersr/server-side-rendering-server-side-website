@@ -22,30 +22,30 @@ Ontwikkel een platform waarop de focus naar webinars ligt.
 
 ## Beschrijving
 ### Het ontwerp
-Aan de hand van een styleguide waarin de kleuren en lettertypes vastgelegd staan, is er een high-fi ontwerp gemaakt in Figma. Aan de hand van het consistent doorvoeren van ronde vormen en kleurgebruik dit maakt het ontwerp een geheel.
+Het ontwerp van het Oncollaboration-platform is gebaseerd op een styleguide, waarin de kleuren en lettertypes zijn vastgelegd. Er is een high-fidelity ontwerp gemaakt in Figma, dat als basis dient voor de uiteindelijke ontwikkeling van de pagina's.
 
-Linkje naar het figma ontwerp:
+- [Bekijk hier het Figma ontwerp](https://www.figma.com/design/1ALElL2SuXZRghkAgXv2C7/Webdesign-Oncollaboration?node-id=0-1&t=E20UIidcLyUHDKC2-1)
+  
+Ontwerpkeuzes
+De keuze voor ronde vormen en consistent kleurgebruik zorgt voor een samenhangend ontwerp dat het platform gebruiksvriendelijk en visueel aantrekkelijk maakt.
+
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/4db086de-b069-478a-90f6-fe2eef9edd75" />
+<img width="850" alt="image" src="https://github.com/user-attachments/assets/28a0eee0-bdf1-40e4-990b-9f519ebac72c" />
 
 ### Het ontwikkelde platform
 In de afgelopen sprint zijn de volgende pagina's ontwikkeld:
 
-- Homepagina
-
-Op de homepagina is er een korte introductie over Oncollaboration en worden er een aantal webinars en countourings overzichtelijk weergegeven. Daarnaast is er ook een zoekfunctie waarbij je kunt zoeken op webinars en contourings.
+- Homepagina: Een introductie van Oncollaboration met een overzicht van webinars en contourings. Gebruikers kunnen zoeken op webinars en contourings.
 
 [Linkje naar de homepagina](https://server-side-rendering-server-side-website-v7dd.onrender.com/)
 
-- Webinar overzichtspagina
+- Webinar Overzichtspagina: Een overzicht van alle webinars, waarbij gebruikers kunnen zoeken en filteren op categorie.
 
-Op de Webinars overzichtspagina is er een overzicht van alle webinars. Met de zoekfunctie heb je de mogelijkheid om te zoeken op webinar.
+[Linkje naar de Overzichtspagina](https://server-side-rendering-server-side-website-v7dd.onrender.com/webinars)
 
-[Linkje naar de contact pagina](https://server-side-rendering-server-side-website-v7dd.onrender.com/webinars)
+- Webinar Detailpagina: De detailpagina van een specifieke webinar, met de mogelijkheid om de webinar af te spelen en te communiceren via een chatfunctie. Er wordt belangrijke informatie gedeeld over de spreker en de inhoud van de webinar.
 
-- Webinar detailpagina
-
-Op de Webinar detailpagina wordt de webinar weergegeven. Deze kan je afspelen en via een chat communiceren met radiologen in Nederland en in Indonesie. Daarentegen wordt er ook belangrijke informatie gedeeld over de webinar, zoals de speaker en het bekijken van de inhoud van de webinar.
-
-[Linkje naar de Partner pagina](https://server-side-rendering-server-side-website-v7dd.onrender.com/webinars/fractionation-in-head-neck-and-cns-malignancies)
+[Linkje naar de Webinar Detailpagina](https://server-side-rendering-server-side-website-v7dd.onrender.com/webinars/fractionation-in-head-neck-and-cns-malignancies)
 
 ### Belangrijke features:
 
@@ -57,23 +57,23 @@ https://github.com/user-attachments/assets/ecee5bc2-2b70-4c93-a086-5fc2d2ad9765
 
 - Mobile first ontwikkeld (reponsive)
 
-Alle pagina's zijn mobile first ontwikkeld. Dit houdt in de pagina's vanuit een mobiel schermbreedte wordt opgebouwd naar een desktop scherm. Dit zorgt ervoor dat de website responsive is voor elk beeldscherm breedte.
+Het platform is volledig mobile-first ontwikkeld, waardoor het goed werkt op verschillende schermgroottes van mobiel tot desktop.
 
 https://github.com/user-attachments/assets/2dd629de-f9d7-4cb0-b162-897633b9b7a5
 
 ## Kenmerken
-In dit project maak ik gebruik van Node.js samen met Express om een webserver op te zetten. Tevens gebruik ik Liquid als template om dynamische HTML-pagina's te creëren, waardoor de webpagina's flexibel en eenvoudig te onderhouden zijn.
+In dit project wordt er gebruik gemaakt van Node.js en Express om de webserver te beheren. Voor het genereren van dynamische HTML-pagina's wordt Liquid gebruikt, wat de webpagina's flexibel en makkelijk te onderhouden maakt.
 
 ### Route-configuraties
-- Homepagina `/`: De webserver haalt informatie op via de Directus API, waaronder gegevens over webinars en contourings. Al deze data wordt getoont op de hoofdpagina `index.liquid`.
-- Webinars overzichtspagina `/webinars/`: Hier worden webinars opgehaald en kunnen gebruikers de webinars filteren op categorie. Al deze data wordt getoont op de `webinars.liquid`.
-- Webinar Detailpagina `/webinars/:slug` : Deze route haalt de informatie op van een specifiek webinar, op basis van de slug die in de URL staat. Op deze pagina wordt specifieke data getoont speciek van de desbetreffende webinar. Al deze data wordt getoont op de `webinar.liquid`.
+- Homepagina `/`: De webserver haalt gegevens op via de Directus API en toont deze op de hoofdpagina `index.liquid`.
+- Webinars overzichtspagina `/webinars/`: Hier worden webinars opgehaald en kunnen gebruikers deze filteren op categorie. De data wordt weergegeven in de template `webinars.liquid`.
+- Webinar Detailpagina `/webinars/:slug` : Deze route haalt de informatie van een specifiek webinar op basis van de slug in de URL en toont deze op de `webinar.liquid`.
 
 ### Data ophalen uit database
-- De data wordt opgehaald uit een database waarin alle benodigde content staat. Voorbeeld
-- Deze data wordt gefetched zodat de data op de pagina getoond wordt. Voorbeeld
-- De data die gefetched wordt wordt gerenderd. Voorbeeld
-- In de liquid aan de hand van een `for` loop wordt de juiste data ingeladen. Voorbeeld
+- Data ophalen via API: De server maakt een API-aanroep om de benodigde gegevens op te halen in JSON-formaat. Voorbeeld
+- Data doorgeven aan Liquid: De opgehaalde data wordt doorgegeven aan de Liquid-template via response.render(). Voorbeeld
+- Data verwerken in Liquid: In de Liquid-template wordt de data met behulp van loops en variabelen verwerkt en weergegeven. Voorbeeld
+- HTML genereren en tonen: Liquid genereert de HTML, die naar de browser wordt gestuurd en zichtbaar wordt voor de gebruiker. Voorbeeld
 
 ## Installatie
 
@@ -91,8 +91,8 @@ Om edits te zien moet je de pagina refreshen omdat het geen hot-reload bevat.
 
 ## Bronnen
 
-- Styling, https://github.com/fdnd-agency/oncollaboration/wiki/Design-Challenge
-- Content, https://github.com/fdnd-agency/oncollaboration
+- Design Styling: Design Challenge
+- Content: Content repository
 
 ## Licentie
 
