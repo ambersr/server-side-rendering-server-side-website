@@ -74,9 +74,14 @@ app.get("/webinars", async function (req, res){
 app.get("/webinars/:slug", async function (request, response){
   const slug = request.params.slug
 
-  const webinarResponseJSON = await fetchJson(webinarsLink + `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,categories.avl_categories_id.*`);
+  const webinarResponseJSON = await fetchJson(webinarsLink + `?filter[slug]=${slug}&fields=featured,views,id,description,duration,title,slug,date,thumbnail,video,resources,.*.*,speakers.*.*,resources.*.*,categories.avl_categories_id.*`);
 
-  response.render("webinar.liquid", { webinars: webinarResponseJSON.data })
+  const allWebinarsResponseJSON = await fetchJson(webinarsLink + `?fields=title,slug,thumbnail,date,speakers.*`);
+
+  response.render("webinar.liquid", { 
+    webinars: webinarResponseJSON.data,
+    allWebinars: allWebinarsResponseJSON.data
+  });
 })
 
 // Maak een POST route voor de index; hiermee kun je bijvoorbeeld formulieren afvangen
