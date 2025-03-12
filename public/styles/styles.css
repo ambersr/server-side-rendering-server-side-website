@@ -143,6 +143,8 @@ body {
 
     form {
         padding: 0 0 2em 0;
+        width: 70%;
+        align-self: left;
 
         input {
             float: left;
@@ -312,6 +314,11 @@ body {
     }
 
     form {
+        width: 100%;
+
+        @media screen and (min-width: 960px) {
+            width: 50%;
+        }
 
         input {
             float: left;
@@ -380,20 +387,14 @@ body {
     }
 
     .webinars {
-
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
         gap: 1.5em;
         padding: 1.5em 0em 0em 0em;
 
         .webinar {
             width: 100%;
             transition: ease-in-out .2s;
-
-            @media screen and (min-width: 960px) {
-                width: 25em;
-            }
-
 
             &:hover {
                 translate: 0em -.7em;
@@ -451,12 +452,13 @@ footer {
     flex-direction: column-reverse;
     gap: 1em;
     padding-top: 2em !important;
-    padding-bottom: 2em !important;
+    padding-bottom: 7em !important;
 
     @media screen and (min-width: 960px) {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        padding-bottom: 2em !important;
 
         ul {
             display: flex;
