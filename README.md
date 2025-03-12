@@ -67,7 +67,7 @@ In dit project wordt er gebruik gemaakt van Node.js en Express om de webserver t
 ### Route-configuraties
 - Homepagina [`/`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L38-L47): De webserver haalt gegevens op via de Directus API en toont deze op de hoofdpagina [`index.liquid`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/index.liquid).
 - Webinars overzichtspagina [`/webinars/`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L50-L71): Hier worden webinars opgehaald en kunnen gebruikers deze filteren op categorie. De data wordt weergegeven in de template [`webinars.liquid`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/webinars.liquid).
-- Webinar Detailpagina [`/webinar/:slug/`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L73-L85)` : Deze route haalt de informatie van een specifiek webinar op basis van de slug in de URL en toont deze op de [`webinar.liquid`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/webinar.liquid).
+- Webinar Detailpagina [`/webinar/:slug/`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L73-L85) : Deze route haalt de informatie van een specifiek webinar op basis van de slug in de URL en toont deze op de [`webinar.liquid`](https://github.com/ambersr/server-side-rendering-server-side-website/blob/main/views/webinar.liquid).
 
 ### Data ophalen uit database
 - Data ophalen via API: De server maakt een API-aanroep om de benodigde gegevens op te halen in JSON-formaat. [Voorbeeld](https://github.com/ambersr/server-side-rendering-server-side-website/blob/79784183415e43f6b3c67195dfdd1da05259c14e/server.js#L77)
@@ -91,8 +91,8 @@ Om edits te zien moet je de pagina refreshen omdat het geen hot-reload bevat.
 
 ## Bronnen
 
-- Design Styling: Design Challenge
-- Content: Content repository
+- Design Styling: [Design challenge](https://github.com/fdnd-agency/oncollaboration/wiki/Design-Challenge)
+- Content: [Repository Oncollaboration](https://github.com/fdnd-agency/oncollaboration)
 
 ## Licentie
 
