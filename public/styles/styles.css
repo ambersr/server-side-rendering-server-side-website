@@ -483,22 +483,22 @@ footer {
 
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5em;
 
     @media screen and (min-width: 960px) {
-        flex-direction: row;
-        gap: 3em;
+        flex-direction: row !important;
+        gap: 4em;
     }
 
-    .left {
-
+    .left-webinar {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
         gap: 1em;
+        width: 100%;
 
         @media screen and (min-width: 960px) {
-            width: 95%;
+            width: 60%;
         }
 
         .back-link {
@@ -547,77 +547,177 @@ footer {
             width: 100%;
         }
 
-        .speaker {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 1em;
-            justify-content: space-between;
-
-            .left {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-
-                .speaker-info {
-                    display: flex;
-                    flex-direction: column;
-                }
-
-                img {
-                    width: 5em;
-                    border-radius: 200em;
-                }
-            }
-        }
-    }
-
-    .right {
-
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-
-        .watch-next {
+        .speakers {
             display: flex;
             flex-direction: column;
             gap: 1em;
 
-            .webinars {
+            .speaker {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1em;
+                justify-content: space-between;
 
-                .webinar {
+                .left {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
+                    align-items: center;
                     gap: 1em;
+
+                    .speaker-info {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    img {
+                        width: 5em;
+                        border-radius: 200em;
+                        height: 5em;
+                        object-fit: cover;
+                    }
+                }
+
+                a {
+                    color: var(--primary-background-color);
+                }
+            }
+        }
+
+        .resources {
+            display: flex;
+            flex-direction: column;
+
+            .resource {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .left-resource {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1em;
+
+                    .file-icon {
+                        background-color: var(--primary-background-color);
+                        align-self: center;
+                        padding: .6em 2em;
+                        border-radius: var(--border-radius-sm);
+                        height: 3em;
+                    }
+
+                    .info {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                    }
+                }
+
+                .right-resource {
+                    display: flex;
+                    flex-direction: row;
+                    gap: .6em;
 
                     a {
                         display: flex;
-                        flex-direction: column;
-                        gap: .5em;
+                        background-color: var(--primary-background-color);
+                        width: 3em;
+                        height: 3em;
+                        border-radius: 100em;
+                        align-items: center;
+                        justify-content: center;
+                        transition: .2s ease-in-out;
 
-                        img {
-                            width: 100%;
-                            height: 17em;
-                            border-radius: var(--border-radius-md);
-                        }
-
-                        h3 {
-                            padding: .6em 0em 0em 0em;
-                        }
-
-                        .speaker {
-                            text-transform: uppercase;
-                            color: var(--primary-background-color);
-                        }
-
-                        .date {
-                            color: var(--primary-background-color);
+                        &:hover {
+                            transition: .2s ease-in-out;
+                             translate: 0em -.3em;
                         }
                     }
                 }
             }
         }
+    }
 
+    .right-webinar {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        width: 100%;
+
+        @media screen and (min-width: 960px) {
+            width: 40%;
+        }
+
+        form {
+
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            input {
+                float: left;
+                width: 85% !important;
+                border-radius: 1em 0em 0em 1em !important;
+            }
+
+            button {
+                float: left;
+                width: 15% !important;
+                border-radius: 0em 1em 1em 0em !important;
+            }
+        }
+    }
+}
+
+.watch-next {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .webinars {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+          gap: 1.5em;
+          padding: 1.5em 0em 0em 0em;
+
+        .webinar {
+            width: 100%;
+            transition: ease-in-out .2s;
+
+            &:hover {
+                translate: 0em -.7em;
+                transition: ease-in-out .2s;
+            }
+
+            a {
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+
+                .banner {
+                    height: 17em;
+                    border-radius: var(--border-radius-md);
+                    object-fit: cover;
+
+                    @media screen and (min-width: 960px) {
+                        height: 16em;
+                    }
+                }
+
+                h3 {
+                    padding: .6em 0em 0em 0em;
+                }
+
+                .speaker {
+                    text-transform: uppercase;
+                    color: var(--primary-background-color);
+                }
+
+                .date {
+                    color: var(--primary-background-color);
+                }
+            }
+        }
     }
 }
 
