@@ -26,7 +26,8 @@ Het ontwerp van het Oncollaboration-platform is gebaseerd op een styleguide, waa
 
 - [Bekijk hier het Figma ontwerp](https://www.figma.com/design/1ALElL2SuXZRghkAgXv2C7/Webdesign-Oncollaboration?node-id=0-1&t=E20UIidcLyUHDKC2-1)
   
-Ontwerpkeuzes
+### Ontwerpkeuzes
+
 De keuze voor ronde vormen en consistent kleurgebruik zorgt voor een samenhangend ontwerp dat het platform gebruiksvriendelijk en visueel aantrekkelijk maakt.
 
 <img width="850" alt="image" src="https://github.com/user-attachments/assets/4db086de-b069-478a-90f6-fe2eef9edd75" />
