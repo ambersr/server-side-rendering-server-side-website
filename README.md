@@ -28,7 +28,11 @@ Het ontwerp van het Oncollaboration-platform is gebaseerd op een styleguide, waa
   
 ### Ontwerpkeuzes
 
-De keuze voor ronde vormen en consistent kleurgebruik zorgt voor een samenhangend ontwerp dat het platform gebruiksvriendelijk en visueel aantrekkelijk maakt.
+- **Primair kleurenschema**: De interface gebruikt een combinatie van bordeauxrood, wit en donkere tinten. Dit zorgt voor een professionele en serieuze uitstraling, passend bij de medische sector.
+
+- **Typografie**: Duidelijke, moderne lettertypes met een goed contrast om de leesbaarheid te verbeteren. De koppen zijn vetgedrukt en in hoofdletters om ze extra te laten opvallen.
+
+- **Consistene UI**: De afgeronde randen maken de scheiding tussen elementen subtieler, waardoor de pagina minder hoekig en strenger aanvoelt.
 
 <img width="850" alt="image" src="https://github.com/user-attachments/assets/4db086de-b069-478a-90f6-fe2eef9edd75" />
 <img width="850" alt="image" src="https://github.com/user-attachments/assets/28a0eee0-bdf1-40e4-990b-9f519ebac72c" />
